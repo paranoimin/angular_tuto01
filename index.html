@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko" data-ng-app="baseApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>angular tuto 01</title>
+    <script type="text/javascript" src="./src/js/angular.min.js"></script>
+    <script type="text/javascript" src="./src/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./src/js/underscore-min.js"></script>
+    <script type="text/javascript" src="./src/js/underscore.string.min.js"></script>
+</head>
+<body>
+    <div data-ng-controller="searchController">
+        <select name="mainCategory" id="mainCategory" data-ng-model="mainCategory" data-ng-options="item as item.name for item in mainCategories track by item.code" data-ng-change="onMainCategoryChange()"></select>
+        <select name="subCategory" id="subCategory" data-ng-model="subCategory" data-ng-options="item as item.typeName for item in subCategoryList track by item.code"></select>
+        <input type="text" name="searchTxt" id="searchTxt" data-ng-model="searchTxt" />
+        <button data-ng-click="onSearchClick()">검색</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>커버이미지</th>
+                    <th>바코드</th>
+                    <th>ISBN</th>
+                    <th>저자</th>
+                    <th>출판사</th>
+                    <th>출판일</th>
+                    <th>가격</th>
+                    <th>세일가격</th>
+                    <th>링크</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-show="searchList.length == 0">
+                    <td colspan="10">검색 결과가 없습니다.</td>
+                </tr>
+                <tr data-ng-repeat="item in searchList">
+                    <td>{{item.title}}</td>
+                    <td><img ng-src="{{item.cover_s_url}}" /></td>
+                    <td>{{item.barcode}}</td>
+                    <td>{{item.isbn}}</td>
+                    <td>{{item.author}}</td>
+                    <td>{{item.pub_nm}}</td>
+                    <td>{{item.pub_date}}</td>
+                    <td>{{item.list_price|number}}</td>
+                    <td>{{item.sale_price|number}}</td>
+                    <td><a href="{{item.link}}">링크</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="./src/js/app.js"></script>
+</body>
+</html>

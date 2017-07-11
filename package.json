@@ -1,0 +1,19 @@
+{
+  "name": "angular_tuto01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paranoimin/angular_tuto01.git"
+  },
+  "author": "jamin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paranoimin/angular_tuto01/issues"
+  },
+  "homepage": "https://github.com/paranoimin/angular_tuto01#readme"
+}
